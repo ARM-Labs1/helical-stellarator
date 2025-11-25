@@ -7,12 +7,32 @@ Magnetic fields can be genearted by the flow of charges. One can determine the m
 
 $${B(r)} = \frac{\mu_{0}I}{4\pi}\int{\frac{\text{d}l\times {r'}}{|{r'}|^3}}$$
 
-Where $dl$ is an infinitessimal segment of the path the current takes, and $r'$ is the full displacement vector from the wire element and the point at which the field is being calculated. $\mu_{0}$ is the permeability of free space and $I$ is the current.
+Where $dl$ is an infinitessimal segment of the path the current takes, and $r'$ is the full displacement vector from the wire element to the point at which the field is being calculated. $\mu_{0}$ is the permeability of free space and $I$ is the current.
 
 Stellators are devices that confine plamsa through the use of magnetic fields, whose interactions are governed by the Lorentz Force. Many designs exist with varying levels of effectiveness. One such design consists of double-helical coils wrapped around a torus, accompanied by a set of equidistant toroidal coils. All the coils have the same magnitude of current, with the direction flipped for one of the helical coils. 
 
 In this simulation, the double-helical configuration was set up, and the Biot-Savart law was used in order to visualise the magnetic flux surfaces caused by the magnetic fields from the coils.
 
-This equation can be discretised and calculated computationally by turning the integral into a sum:
+## Method
+The Biot-Savart law can be discretised and calculated computationally by turning the integral into a sum:
 
 $${B}(r) \approx \frac{\mu_{0}I}{4\pi}\sum^{N}_{i=1}{\frac{dl_{i}\times ({r}-{r'_{i}})}{|{r}-{r'_{i}}|^{3}}}$$
+
+Where quantities denoted with the subscript $i$ refer to an infinitessimal section of the coil, and N is the total number of sections that make up the coil. This was written using Python. Rather than using an iterative process, the library NumPy was used in order to cycle the arrays holding the infinitessimal line segments where operations where done on them as a whole, which proved to be more resource efficient compared to traditional means.
+
+The code for calculating the magnetic field using the Biot-Savart law was checked with a scenario which could be analytically solved. The chosen scenario was the magnetic field inside of a planar circular coil of radius 0.2m carrying a current of 1kA. It is verifiable that the Biot-Savart Law simplifies to the following solution for a circular coil of wire:
+
+$$B_{0} = \frac{\mu_{0} I}{2R}$$
+
+Where $R$ is the radius of the coil. For the chosen scenario, using the above equation, the magnetic field is $B = \pi \times 10^{-3}$ T which was consistent with the results obtained from computaitonal means.
+
+An Object-Oriented approach was used when defining the stellerator and coils, with one class defining the toroidal coils, and a seperate class defining the Stellarator and helical coils. These classes only needed to be instantiated in order to make use of them, with the added benefit that multiple objects could be defined and studied while keeping code minimal. When calculating the magnetic flux surfaces, the standard Euler method for solving ordinary differential equations was used. 
+
+## Results
+[PUT THE RESULTS HERE WHEN YOU PROPERLY RUN THE CODE WITH THE BEEFY PC]
+
+## Conclusion
+The magnetic flux surfaces inside a Stellarator consisting of a set of double-helical coils and equidistant toroidal coils was calculated using the Biot-Savart law and Euler's law which was solved computationally. The results revealed...
+
+If this experiment were to be repeated again, a different numerical method, such as The Runga-Kutte method would be used instead of The Euler Method in order to improve the quality of results and resource efficiency. Configurations involving non-planar coils would also be investigated, as well as configurations that aren't perfectly toroidal. Attemps would also be made to actually simulate how plasma would flow within these Stellarators.
+
