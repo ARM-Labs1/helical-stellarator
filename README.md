@@ -31,9 +31,10 @@ Where $R$ is the radius of the coil. For the chosen scenario, using the above eq
 An Object-Oriented approach was used when defining the stellerator and coils, with one class defining the toroidal coils, and a seperate class defining the Stellarator and helical coils. These classes only needed to be instantiated in order to make use of them, with the added benefit that multiple objects could be defined and studied while keeping code minimal. When calculating the magnetic flux surfaces, the standard Euler method for solving ordinary differential equations was used. 
 
 ## Results
-Three seperate starting points were used when performing the Euler Method, each of the three starting points were iterated through 200 000 times, obtaining the following plot:
+Three seperate starting points were used when performing the Euler Method, each of the three starting points, r=0.58, 0.60. 0.62m were iterated through 200 000 times, obtaining the following plot:
 <img width="1200" height="1179" alt="Confinement" src="https://github.com/user-attachments/assets/d773b256-04ae-4aa1-acc7-b3ef5e732ff9" />
 
+Evidently, all three field lines remin bounded within the stellarator, indicating successfull magnetic confinement. The fluz surfaces exhibit visible helical distortion, the non cicrular, twisted shape reflects the influence of the six-turn double-helical coils. 
 
 ## Conclusion
 The magnetic flux surfaces inside a Stellarator consisting of a set of double-helical coils and equidistant toroidal coils was calculated using the Biot-Savart law and Euler's law which was solved computationally. The results revealed...
