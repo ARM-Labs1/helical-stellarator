@@ -29,7 +29,7 @@ An Object-Oriented approach was used when defining the stellerator and coils, wi
 
 ## Results
 Three seperate starting points were used when performing the Euler Method, each of the three starting points, r=0.58, 0.60. 0.62m were iterated through 200 000 times, obtaining the following plot:
-<img width="1200" height="1179" alt="Confinement" src="https://github.com/user-attachments/assets/d773b256-04ae-4aa1-acc7-b3ef5e732ff9" />
+<img width="509" height="547" alt="Confinement1" src="https://github.com/user-attachments/assets/5e903d83-abea-4ec2-97dc-df69152432c3" />
 
 Evidently, all three field lines remin bounded within the stellarator, indicating successfull magnetic confinement. The fluz surfaces exhibit visible helical distortion, the non cicrular, twisted shape reflects the influence of the six-turn double-helical coils. 
 
